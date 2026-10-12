@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build:pages": "next build && node scripts/pages-postbuild.mjs"
   },
   "dependencies": {
     "next": "16.4.0",

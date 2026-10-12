@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowRight, Phone } from "./icons";
+import { asset } from "@/lib/asset";
 
 type Props = {
   lang: "es" | "en";
@@ -91,7 +92,7 @@ export default function SiteHeader({
       <div className="flex h-[84px] w-full items-center justify-between gap-6 px-5 md:px-8 lg:px-10">
         <Link href={base} aria-label={`${clinicName} — ${labels.home}`} className="shrink-0">
           <Image
-            src="/img/logo-capcana.png"
+            src={asset("/img/logo-capcana.png")}
             alt={clinicName}
             width={480}
             height={236}

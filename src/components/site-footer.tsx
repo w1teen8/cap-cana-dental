@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/content";
+import { asset } from "@/lib/asset";
 
 export default async function SiteFooter() {
   const { t, href } = await getContent();
@@ -15,7 +16,7 @@ export default async function SiteFooter() {
             <div className="flex flex-col gap-4">
               <Link href={href("/")} aria-label={clinic.name}>
                 <Image
-                  src="/img/logo-capcana.png"
+                  src={asset("/img/logo-capcana.png")}
                   alt={clinic.name}
                   width={480}
                   height={236}

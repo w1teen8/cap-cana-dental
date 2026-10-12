@@ -4,13 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { alternates, getContent } from "@/content";
 import { en } from "@/content/en";
+import { asset } from "@/lib/asset";
 import { Button, Reveal } from "@/components/ui";
 import { CtaBand, OfferCard } from "@/components/sections";
 import { ArrowLeft, Clock, Tag } from "@/components/icons";
-
-/** Every slug comes from generateStaticParams, so the route may block
-    instead of streaming a shell around the params read. */
-export const instant = false;
 
 /** Slugs are the same in both languages. */
 export function generateStaticParams() {
@@ -91,7 +88,7 @@ export default async function TreatmentPage({
           <Reveal delay={120}>
             <div className="relative aspect-square overflow-hidden rounded-[22px]">
               <Image
-                src={tr.image}
+                src={asset(tr.image)}
                 alt={tr.title}
                 fill
                 priority

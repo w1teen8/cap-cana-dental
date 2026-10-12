@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/content";
+import { asset } from "@/lib/asset";
 import { Button, Reveal, SectionHead } from "./ui";
 import { ArrowUpRight, Briefcase, Icon, Star } from "./icons";
 
@@ -66,7 +67,7 @@ export async function Hero() {
           <div className="relative">
             <div className="relative aspect-[440/560] overflow-hidden rounded-[22px] bg-ink">
               <Image
-                src="/img/hero-patient.jpg"
+                src={asset("/img/hero-patient.jpg")}
                 alt={t.home.heroAlt}
                 fill
                 priority
@@ -155,7 +156,7 @@ export async function TreatmentsGrid({
                 <article className="flex h-full flex-col rounded-[20px] bg-cream p-3">
                   <div className="relative aspect-[363/220] overflow-hidden rounded-2xl">
                     <Image
-                      src={tr.image}
+                      src={asset(tr.image)}
                       alt={tr.title}
                       fill
                       sizes="(max-width: 810px) 100vw, 33vw"
@@ -224,7 +225,7 @@ export async function WhyUs() {
         <Reveal delay={120}>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] lg:aspect-[480/580]">
             <Image
-              src="/img/clinic-room.jpg"
+              src={asset("/img/clinic-room.jpg")}
               alt={t.home.whyAlt}
               fill
               sizes="(max-width: 1200px) 100vw, 480px"
@@ -298,7 +299,7 @@ export async function Team() {
               <article>
                 <div className="relative aspect-[384/400] overflow-hidden rounded-[20px] bg-cream">
                   <Image
-                    src={m.photo}
+                    src={asset(m.photo)}
                     alt={m.name}
                     fill
                     sizes="(max-width: 640px) 100vw, 33vw"

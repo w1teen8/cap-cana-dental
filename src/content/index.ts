@@ -2,6 +2,7 @@ import { lang } from "next/root-params";
 import { notFound } from "next/navigation";
 import { en, type Content } from "./en";
 import { es } from "./es";
+import { pageUrl } from "@/lib/asset";
 
 export const locales = ["es", "en"] as const;
 export type Locale = (typeof locales)[number];
@@ -24,7 +25,11 @@ export async function getContent() {
 
 /** hreflang links for a page: the same path in each language. */
 export const alternates = (path = "") => ({
-  languages: { es: `/es${path}`, en: `/en${path}`, "x-default": `/es${path}` },
+  languages: {
+    es: pageUrl(`/es${path}`),
+    en: pageUrl(`/en${path}`),
+    "x-default": pageUrl(`/es${path}`),
+  },
 });
 
 export type { Content };

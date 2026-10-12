@@ -4,6 +4,7 @@ import { alternates, getContent } from "@/content";
 import { PageHeroCentered, StatsRow } from "@/components/page-parts";
 import { CtaBand, Team, WhyUs } from "@/components/sections";
 import { Reveal } from "@/components/ui";
+import { asset } from "@/lib/asset";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getContent();
@@ -21,7 +22,7 @@ export default async function AboutPage() {
       {/* full-bleed clinic photograph */}
       <div className="relative h-[280px] w-full md:h-[420px] lg:h-[562px]">
         <Image
-          src="/img/about-interior.jpg"
+          src={asset("/img/about-interior.jpg")}
           alt={p.imageAlt}
           fill
           priority

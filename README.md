@@ -11,10 +11,18 @@ npm run build
 npm start
 ```
 
+## Deployment
+
+Pushing to `main` deploys to GitHub Pages through `.github/workflows/deploy.yml`.
+That build is a static export (`GITHUB_PAGES=true`): it sets the base path to the repository
+name, turns off image optimisation, and runs `scripts/pages-postbuild.mjs`, which writes the
+root redirect to `/es/` and renames the navigation payloads so a static host can serve them.
+Without that variable the project builds as a normal Next server (`npm run build`).
+
 ## Languages
 
 Routes live under `src/app/[lang]/`, so every page exists at `/es/...` and `/en/...`.
-`/` redirects to `/es` (see `next.config.ts`).
+`/` redirects to `/es` (config redirect on a server, static `index.html` in the export).
 
 | Path | What |
 | --- | --- |
